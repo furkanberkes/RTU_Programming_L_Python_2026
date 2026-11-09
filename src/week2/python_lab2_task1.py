@@ -64,7 +64,7 @@ def largest_city(populations: dict[str, int]) -> tuple[str, int]:
         return ("", 0)
 
     # max() evaluates from left to right, returning the first occurrence in case of a tie.
-    best_city = max(populations, key=populations.get)
+    best_city = min(populations, key=lambda k: populations[k])
     return (best_city, populations[best_city])
 
 
@@ -74,7 +74,7 @@ def smallest_city(populations: dict[str, int]) -> tuple[str, int]:
         return ("", 0)
 
     # min() also evaluates from left to right, handling the tie-breaker correctly.
-    best_city = min(populations, key=populations.get)
+    best_city = max(populations, key=lambda k: populations[k])
     return (best_city, populations[best_city])
 
 
